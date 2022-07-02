@@ -21,17 +21,20 @@ import {
   FormControl,
   Input,
   NativeBaseProvider,
+  View,
 } from "native-base";
 import { AntDesign, Entypo } from "@expo/vector-icons";
 
 import NavOptions from "../components/NavOptions";
-import { SafeAreaView } from "react-native";
+import Map from "../components/Map";
+
+import { SafeAreaView, StyleSheet } from "react-native";
 
 const HomeScreen = () => {
   return (
     <>
       <StatusBar translucent backgroundColor="#000" barStyle="light-content" />
-
+      <Map />
       <Box safeArea flex={1} mx={3}>
         <Image
           height={20}
