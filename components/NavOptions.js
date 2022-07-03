@@ -10,6 +10,8 @@ import {
   Image,
 } from "react-native";
 import { Box } from "native-base";
+import { useSelector } from "react-redux";
+import { selectOrigin } from "../slices/navSlice";
 // import { TouchableOpacity } from "react-native-web";
 
 const data = [
@@ -31,7 +33,7 @@ const data = [
 
 const NavOptions = () => {
   const navigation = useNavigation();
-
+  const origin = useSelector(selectOrigin);
   return (
     <Box safeArea>
       <FlatList
@@ -39,7 +41,10 @@ const NavOptions = () => {
         data={data}
         horizontal
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => navigation.navigate(item.screen)}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate(item.screen)}
+            disabled={!origin}
+          >
             <View>
               <Image
                 style={{

@@ -1,3 +1,4 @@
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
   Box,
   FlatList,
@@ -15,11 +16,13 @@ import {
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import Map from "../components/Map";
 
+import NavigateCard from "../components/NavigateCard";
+import RideOptionCard from "./RideOptionCard";
 import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 
 import { setDestination, setOrigin } from "../slices/navSlice";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const FindRideScreen = () => {
   const Stack = createNativeStackNavigator();
@@ -52,7 +55,7 @@ const FindRideScreen = () => {
             );
             console.log(data, details);
 
-            navigation.navigate("RideOptionCard");
+            Navigation.navigate("RideOptionCard");
           }}
           styles={{
             container: {
@@ -61,7 +64,7 @@ const FindRideScreen = () => {
               flex: 0,
             },
             textInput: {
-              fontSize: 18,
+              fontSize: 10,
               backgroundColor: "#DDDDDF",
               borderRadius: 0,
             },
@@ -71,6 +74,26 @@ const FindRideScreen = () => {
             },
           }}
         />
+
+        <Stack.Navigator
+          initialRouteName="NaviationCard"
+          screenOptions={{ headerShown: false }}
+        >
+          <Stack.Screen
+            name="NaviationCard"
+            component={NavigateCard}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="RideOptionCard"
+            component={RideOptionCard}
+            options={{
+              headerShown: false,
+            }}
+          />
+        </Stack.Navigator>
       </Box>
     </>
   );
