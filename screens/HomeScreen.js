@@ -43,7 +43,7 @@ const HomeScreen = () => {
     <>
       <StatusBar translucent backgroundColor="#000" barStyle="light-content" />
 
-      <Box safeArea flex={1} mx={3}>
+      <Box safeArea flex={1} mx={3} h={`full`}>
         <Image
           height={20}
           width={80}

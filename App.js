@@ -22,8 +22,6 @@ import OfferRideScreen from "./screens/OfferRideScreen";
 import NavigateCard from "./components/NavigateCard";
 import RideOptionCard from "./components/RideOptionCard";
 
-
-
 //Navtigation setup
 // import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
@@ -96,58 +94,59 @@ export default function App() {
     <Provider store={store}>
       <NativeBaseProvider theme={theme}>
         <NavigationContainer>
-          <Stack.Navigator
-            screenOptions={{ headerShown: false }}
-          >{true && (<>
-          <Stack.Screen
-            name="SignInScreen"
-            component={SignInScreen}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            name="SignUpScreen"
-            component={SignUpScreen}
-            options={{
-              headerShown: false,
-            }}
-          />
-            <Stack.Screen
-              name="HomeScreen"
-              component={HomeScreen}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name="FindRideScreen"
-              component={FindRideScreen}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name="OfferRideScreen"
-              component={OfferRideScreen}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name="NavigateCard"
-              component={NavigateCard}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name="RideOptionCard"
-              component={RideOptionCard}
-              options={{
-                headerShown: false,
-              }}
-            /></>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            {true && (
+              <>
+                <Stack.Screen
+                  name="SignInScreen"
+                  component={SignInScreen}
+                  options={{
+                    headerShown: false,
+                  }}
+                />
+                <Stack.Screen
+                  name="SignUpScreen"
+                  component={SignUpScreen}
+                  options={{
+                    headerShown: false,
+                  }}
+                />
+                <Stack.Screen
+                  name="HomeScreen"
+                  component={HomeScreen}
+                  options={{
+                    headerShown: false,
+                  }}
+                />
+                <Stack.Screen
+                  name="FindRideScreen"
+                  component={FindRideScreen}
+                  options={{
+                    headerShown: false,
+                  }}
+                />
+                <Stack.Screen
+                  name="OfferRideScreen"
+                  component={OfferRideScreen}
+                  options={{
+                    headerShown: false,
+                  }}
+                />
+                <Stack.Screen
+                  name="NavigateCard"
+                  component={NavigateCard}
+                  options={{
+                    headerShown: false,
+                  }}
+                />
+                <Stack.Screen
+                  name="RideOptionCard"
+                  component={RideOptionCard}
+                  options={{
+                    headerShown: false,
+                  }}
+                />
+              </>
             )}
           </Stack.Navigator>
         </NavigationContainer>
@@ -177,6 +176,6 @@ export default function App() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#F9FBFC'
-  }
-})
+    backgroundColor: "#F9FBFC",
+  },
+});
