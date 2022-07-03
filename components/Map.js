@@ -15,6 +15,7 @@ import {
   Center,
   NativeBaseProvider,
 } from "native-base";
+import React, { useState } from "react";
 
 import { useSelector } from "react-redux";
 import { selectDestination, selectOrigin } from "../slices/navSlice";

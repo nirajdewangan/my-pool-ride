@@ -14,7 +14,7 @@ import {
   View,
 } from "native-base";
 import NativeBaseIcon from "./components/NativeBaseIcon";
-import { Platform } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 import HomeScreen from "./screens/HomeScreen";
 import FindRideScreen from "./screens/FindRideScreen";
@@ -22,10 +22,15 @@ import OfferRideScreen from "./screens/OfferRideScreen";
 import NavigateCard from "./components/NavigateCard";
 import RideOptionCard from "./components/RideOptionCard";
 
+
+
 //Navtigation setup
-import { SafeAreaProvider } from "react-native-safe-area-context";
+// import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+// import { useNavigation } from "@react-navigation/native";
+import SignInScreen from "./screens/SignInScreen";
+import SignUpScreen from "./screens/SignUpScreen";
 
 //setup Redux toolkit
 import { Provider } from "react-redux";
@@ -82,6 +87,8 @@ const config = {
 // extend the theme
 export const theme = extendTheme({ config });
 
+// const navigation = useNavigation();
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -90,9 +97,22 @@ export default function App() {
       <NativeBaseProvider theme={theme}>
         <NavigationContainer>
           <Stack.Navigator
-            initialRouteName="HomeScreen"
             screenOptions={{ headerShown: false }}
-          >
+          >{true && (<>
+          <Stack.Screen
+            name="SignInScreen"
+            component={SignInScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="SignUpScreen"
+            component={SignUpScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
             <Stack.Screen
               name="HomeScreen"
               component={HomeScreen}
@@ -127,7 +147,8 @@ export default function App() {
               options={{
                 headerShown: false,
               }}
-            />
+            /></>
+            )}
           </Stack.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>
@@ -136,19 +157,26 @@ export default function App() {
 }
 
 // Color Switch Component
-function ToggleDarkMode() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  return (
-    <HStack space={2} alignItems="center">
-      <Text>Dark</Text>
-      <Switch
-        isChecked={colorMode === "light"}
-        onToggle={toggleColorMode}
-        aria-label={
-          colorMode === "light" ? "switch to dark mode" : "switch to light mode"
-        }
-      />
-      <Text>Light</Text>
-    </HStack>
-  );
-}
+// function ToggleDarkMode() {
+//   const { colorMode, toggleColorMode } = useColorMode();
+//   return (
+//     <HStack space={2} alignItems="center">
+//       <Text>Dark</Text>
+//       <Switch
+//         isChecked={colorMode === "light"}
+//         onToggle={toggleColorMode}
+//         aria-label={
+//           colorMode === "light" ? "switch to dark mode" : "switch to light mode"
+//         }
+//       />
+//       <Text>Light</Text>
+//     </HStack>
+//   );
+// }
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    backgroundColor: '#F9FBFC'
+  }
+})
