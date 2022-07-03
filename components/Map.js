@@ -75,9 +75,9 @@ const Map = () => {
               latitude: destination.location.lat,
               longitude: destination.location.lng,
             }}
-            title="Origin"
+            title="Destination"
             description={destination.description}
-            identifier="origin"
+            identifier="destination"
           />
         )}
       </MapView>

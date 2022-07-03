@@ -52,7 +52,7 @@ const FindRideScreen = () => {
             );
             console.log(data, details);
 
-            navigation.navigate("RideOptionCard");
+            // navigation.navigate("RideOptionCard");
           }}
           styles={{
             container: {
